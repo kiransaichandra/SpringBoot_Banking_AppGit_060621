@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.springboot.bank.Alien;
 
 @Controller
+//@ComponentScan(basePackages= {"com.project.springboot.bank.controllers"})
 public class ControllerMain {
 
 	@RequestMapping("/home1")
@@ -41,7 +42,7 @@ public class ControllerMain {
 	}
 	
 	@RequestMapping("/")
-	//@ResponseBody
+	//@ResponseBody	
 	public ModelAndView methodHome(Alien alien1) {
 		
 		ModelAndView mv= new ModelAndView();
