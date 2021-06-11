@@ -10,6 +10,8 @@
 	</parent>
 	<groupId>com.spring.project</groupId>
 	<artifactId>SpringBoot_Banking_App_060621</artifactId>
+	 <!--  Added below to create WAR file with MAVEN Build -->
+	 <packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringBoot_Banking_App_060621</name>
 	<description>Demo project for Spring Boot</description>
@@ -58,6 +60,35 @@
 		     <artifactId>spring-boot-devtools</artifactId>
 		     <optional>true</optional>
 		</dependency>
+		
+		
+		 <!-- Tomcat jasper Embed trying to resolve jsp path issue in maven build jar file. 
+		 But finally got some info that jsp and paths doesnt work in JAR file. 
+		 So created WAR file by adding 	 <packaging>war</packaging> in pom.xml
+		  and used same command to run WAR file. It worked correctly. -->
+		<!-- <dependency>
+		  <groupId>org.apache.tomcat.embed</groupId>
+		  <artifactId>tomcat-embed-jasper</artifactId>
+		</dependency> -->
+		
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jstl</artifactId>
+		</dependency>
+		
+		 <!-- Tomcat Embed trying to resolve jsp path issue in maven build jar file -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- Tomcat Embed trying to resolve jsp path issue in maven build jar file -->
+       <!--  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency> -->
 
 	</dependencies>
 

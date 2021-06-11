@@ -9,6 +9,7 @@ Home JSP Page1. ${name2}  ${name3}
 <br>
 </n>
 Updated to git. Downloaded from Git. Made some changes and created build jar file using Maven build.
+Still testing2s.
 <br>
 
 ${alienTemp.aid}   , ${alienTemp.aname}
