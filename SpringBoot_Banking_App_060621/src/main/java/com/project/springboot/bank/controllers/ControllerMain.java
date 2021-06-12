@@ -2,12 +2,14 @@ package com.project.springboot.bank.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.springboot.bank.Alien;
+import com.project.springboot.bank.Repositories.AlienRepo;
 
 @Controller
 public class ControllerMain {
@@ -44,7 +46,8 @@ public class ControllerMain {
 	  //@ResponseBody 
 	  public ModelAndView methodHome(Alien alien1) {
 	  
-		  ModelAndView mv= new ModelAndView(); mv.addObject("alienTemp",alien1);
+		  ModelAndView mv= new ModelAndView(); 
+		  mv.addObject("alienTemp",alien1);
 		  mv.setViewName("home"); 
 		  System.out.println("Controller method main home");
 		  return mv; 
@@ -55,5 +58,15 @@ public class ControllerMain {
 	 * @RequestMapping("/") //@ResponseBody public String methodHome() {
 	 * System.out.println("Controller method main home2"); return "home"; }
 	 */
+	  @Autowired
+	  AlienRepo repo;
+	  
+	  @RequestMapping("/addAlien")
+	  public String addAlien(Alien alien) {
+		  
+		  //repo.save(alien);
+		  return "addAlienStatus";
+		  
+	  }
 
 }

@@ -1,29 +1,29 @@
 package com.project.springboot.bank;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
-import com.project.springboot.bank.Laptop;
-
+@Entity
 @Component()
+@Table
 public class Alien {
 	
+	@Id
 	private int aid;
 	private String aname;
 	private String aLang;
-	@Autowired
-	@Qualifier("lap1")
-	private Laptop laptop;
-	
-	
-	
-	public Laptop getLaptop() {
-		return laptop;
-	}
-	public void setLaptop(Laptop laptop) {
-		this.laptop = laptop;
-	}
+
+	/*
+	 * @Autowired
+	 * 
+	 * @Qualifier("lap1") private Laptop laptop;
+	 * 
+	 * public Laptop getLaptop() { return laptop; } public void setLaptop(Laptop
+	 * laptop) { this.laptop = laptop; }
+	 */
 	public int getAid() {
 		return aid;
 	}
@@ -50,7 +50,7 @@ public class Alien {
 	
 	public void show() {
 		System.out.println("Alien Details:"+ this.aid + " , "+ this.aname +" , "+ this.aLang +".");
-		laptop.showL();
+		//laptop.showL();
 	}
 
 }

@@ -52,7 +52,7 @@
 		    <groupId>com.h2database</groupId>
 		    <artifactId>h2</artifactId>
 		    <scope>runtime</scope>
-		</dependency>
+		</dependency> 
 		
 		<!-- Below dependency is for automatically publishing changes without restarting tomcat. This is not mandatory, you can remove this. -->
 		<dependency>
@@ -77,18 +77,57 @@
 		</dependency>
 		
 		 <!-- Tomcat Embed trying to resolve jsp path issue in maven build jar file -->
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency> -->
+        
+        <!-- Tomcat Embed trying to resolve jsp path issue in maven build jar file -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
         
-        <!-- Tomcat Embed trying to resolve jsp path issue in maven build jar file -->
-       <!--  <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
+		<!-- <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>4.1.4.Final</version>
+		</dependency> -->
+
+		<!-- <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.2.3.Final</version>
+		</dependency> -->
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>5.4.32.Final</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.4.32.Final</version>
+		</dependency>
+		
+		
+		
+		<!-- <dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.3.0</version>
+		</dependency> -->
+		
+		<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+    	</dependency>
 
 	</dependencies>
 
