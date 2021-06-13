@@ -1,0 +1,10 @@
+CREATE TABLE country (
+    id   INTEGER      NOT NULL AUTO_INCREMENT,
+    name VARCHAR(128) NOT NULL,
+    PRIMARY KEY (id)
+);CREATE TABLE Alien (
+    aid   INTEGER      NOT NULL,
+    aname VARCHAR(128) NOT NULL,
+    alang VARCHAR(128) NOT NULL,
+    PRIMARY KEY (aid)
+);

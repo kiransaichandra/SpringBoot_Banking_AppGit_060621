@@ -1,5 +1,6 @@
 package com.project.springboot.bank;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,13 +9,15 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component()
-@Table
+//@Table
 public class Alien {
 	
 	@Id
 	private int aid;
+//	@Column
 	private String aname;
-	private String aLang;
+//	@Column
+	private String alang;
 
 	/*
 	 * @Autowired
@@ -36,20 +39,21 @@ public class Alien {
 	public void setAname(String aname) {
 		this.aname = aname;
 	}
-	public String getaLang() {
-		return aLang;
+	
+	public String getAlang() {
+		return alang;
 	}
-	public void setaLang(String aLang) {
-		this.aLang = aLang;
+	public void setAlang(String alang) {
+		this.alang = alang;
 	}
+	
 	
 	@Override
 	public String toString() {
-		return "Alien [aid=" + aid + ", aname=" + aname + ", aLang=" + aLang + "]";
+		return "Alien [aid=" + aid + ", aname=" + aname + ", alang=" + alang + "]";
 	}
-	
 	public void show() {
-		System.out.println("Alien Details:"+ this.aid + " , "+ this.aname +" , "+ this.aLang +".");
+		System.out.println("Alien Details:"+ this.aid + " , "+ this.aname +" , "+ this.alang +".");
 		//laptop.showL();
 	}
 

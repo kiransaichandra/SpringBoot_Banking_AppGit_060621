@@ -24,6 +24,27 @@ ${alienTemp.aid}   , ${alienTemp.aname}
 	<input type="submit" value="Create Account">
 </form>
 
+<a href="views/testHref1.jsp" > Test Herif JSP</a>
+
+
+<br><br>
+
+<form action="addAlien" method="POST">
+	ID          <input type="text" name="aid"> <br>
+	First Name     <input type="text" name="aname"> <br>
+	Lang Name      <input type="text" name="alang"> <br>
+	<input type="Submit" value="Submit">
+</form>
+
+<br><br>
+
+<form action="getAliens" method="GET">
+	<input type="Submit" value="Get Aliens">
+</form>
+
+<form action="getTopTwoAliens" method="GET">
+	<input type="Submit" value="Get Top Two Aliens">
+</form>
 
 
 

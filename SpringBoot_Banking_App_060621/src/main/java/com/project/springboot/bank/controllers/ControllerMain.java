@@ -1,17 +1,23 @@
 package com.project.springboot.bank.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.springboot.bank.Alien;
 import com.project.springboot.bank.Repositories.AlienRepo;
 
-@Controller
+//@Controller
+@RestController
 public class ControllerMain {
 
 	@RequestMapping("/home1")
@@ -63,10 +69,54 @@ public class ControllerMain {
 	  
 	  @RequestMapping("/addAlien")
 	  public String addAlien(Alien alien) {
-		  
-		  //repo.save(alien);
+		  repo.save(alien);
 		  return "addAlienStatus";
-		  
 	  }
+	  
+	  @Autowired
+	  AlienRepo repo2;
+	  @RequestMapping("/getAliens")
+	  public ModelAndView getAliens() {
+		  ModelAndView mv= new ModelAndView();
+		  List<Alien> alienList = repo2.getAliens();
+		  mv.addObject(alienList);
+		  mv.setViewName("getAliensStatus"); 
+		  System.out.println(repo2.getAliens());
+		  return mv;
+	  }
+	  
+	  
+	  
+	  @Autowired
+	  AlienRepo repo3;
+	  @RequestMapping("/getTopTwoAliens")
+	  public ModelAndView getTopTwoAliens2() {
+		  ModelAndView mv2= new ModelAndView();
+		  List<Alien> ttalienList = repo3.getTopTwoAliens();
+		  mv2.addObject("ttalienList",ttalienList);  // Unless i add this two params, its not working, but working correctly for above single param. Not Sure why
+		  mv2.setViewName("getTopTwoAliens"); 
+		  System.out.println(repo3.getTopTwoAliens());
+		  return mv2;
+	  }
+	  
+	  @RequestMapping("/aliens")
+	  @ResponseBody
+	  public String Aliens() {
+		  return repo3.getAliens().toString();
+	  }
+	  
+	  @RequestMapping("/alien/{aid}")
+	  @ResponseBody
+	  public Alien AlienById(@PathVariable("aid") int aid) {
+		  return repo3.getAlienByID(aid);
+	  }
+	  
+	  @PostMapping("/addAlien")
+	  public Alien addAlienPost(Alien alien) {
+		  repo.save(alien);
+		  return alien;
+	  }
+	  
+	  
 
 }
